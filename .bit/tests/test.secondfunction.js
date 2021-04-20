@@ -1,6 +1,7 @@
 let uri = undefined
 const fetch = require('node-fetch');
 
+console.log(process.env.SECOND_ENDPOINT)
 uri = process.env.SECOND_ENDPOINT
 if (uri[0] != "h") {
    throw new Error("You have not added your function url as a secret!");
