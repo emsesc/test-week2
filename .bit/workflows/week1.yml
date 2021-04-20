@@ -31,6 +31,7 @@ jobs:
         env:
           HTTP_ENDPOINT: ${{ secrets.HTTP_ENDPOINT }}
         run: |
+          npm install fs
           npm install node-fetch
           node .bit/tests/test.firstfunction.js
 
