@@ -22,7 +22,7 @@ jobs:
         run: echo ::set-output name=count::$(cat ./.bit/.progress)
 
       - name: Step 1
-        if: ${{steps.vars.outputs.count == 10 && github.event.head_commit.message != 'Update progress'}}
+        if: ${{steps.vars.outputs.count == 9 && github.event.head_commit.message != 'Update progress'}}
         env:
           FUNCTION_URL: ${{ secrets.FUNCTION_URL }}
         run: |
@@ -31,14 +31,14 @@ jobs:
           npm install fs
           node .bit/tests/test.parseimage.js
       - name: Step 3
-        if: ${{steps.vars.outputs.count == 12 && github.event.head_commit.message != 'Update progress'}}
+        if: ${{steps.vars.outputs.count == 11 && github.event.head_commit.message != 'Update progress'}}
         env:
           SUBSCRIPTION_KEY: ${{ secrets.SUBSCRIPTION_KEY }}
           API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
         run: |
           node .bit/tests/test.secrets2.js
       - name: Step 5
-        if: ${{steps.vars.outputs.count == 14 && github.event.head_commit.message != 'Update progress'}}
+        if: ${{steps.vars.outputs.count == 13 && github.event.head_commit.message != 'Update progress'}}
         env:
           FUNCTION_URL: ${{ secrets.FUNCTION_URL }}
         run: |
